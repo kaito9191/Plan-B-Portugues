@@ -1,12 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 // Add ChevronRight to the lucide-react imports
 import { Linkedin, Instagram, ExternalLink, Award, Sparkles, BookOpen, MapPin, ChevronRight } from 'lucide-react';
 import { teachers, courses } from '../../data/mockData';
 import { Link } from 'react-router-dom';
+import TrajectoriesModal from './TrajectoriesModal';
 
 export default function TeacherProfiles() {
+  const [show, setShow] = useState(false);
   return (
     <div className="pt-28 pb-20 bg-[#fafdfb]">
       <div className="max-w-7xl mx-auto px-4">
@@ -91,7 +93,8 @@ export default function TeacherProfiles() {
                       <ExternalLink size={22} /> <span className="text-sm font-black uppercase tracking-widest">Portfólio</span>
                     </a>
                   )}
-                </div>
+                  </div>
+                  <button onClick={() => setShow(true)} className="mt-12 px-10 py-5 border-2 border-[#00471b] rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#00471b] hover:text-white transition-all">Ver Trajetórias</button>
 
                 <div className="pt-10 border-t border-slate-100">
                    <h4 className="font-bold text-slate-900 mb-6 flex items-center gap-3">
@@ -119,6 +122,7 @@ export default function TeacherProfiles() {
           ))}
         </div>
       </div>
+      {show && <TrajectoriesModal open={show} onClose={() => setShow(false)} teachers={teachers} courses={courses} />}
     </div>
   );
 }

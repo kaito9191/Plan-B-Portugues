@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { courses, teachers } from './data/mockData';
 import LeadForm from './components/contact/LeadForm';
+import TrajectoriesModal from './components/teachers/TrajectoriesModal';
 
 // --- COMPONENTES UI MODERNOS ---
 
@@ -224,7 +225,10 @@ const PopularCourses = () => (
   </section>
 );
 
-const Home = () => (
+const Home = () => {
+  const [showTraj, setShowTraj] = useState(false);
+
+  return (
   <main className="bg-white">
     <Hero />
     <Methodology />
@@ -243,9 +247,7 @@ const Home = () => (
                 </div>
               ))}
             </div>
-            <a href="#teachers">
-              <button className="mt-12 px-10 py-5 border-2 border-[#00471b] rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#00471b] hover:text-white transition-all">Ver Trajetórias</button>
-            </a>
+            <button onClick={() => setShowTraj(true)} className="mt-12 px-10 py-5 border-2 border-[#00471b] rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-[#00471b] hover:text-white transition-all">Ver Trajetórias</button>
           </div>
           <div className="grid grid-cols-2 gap-6">
             {teachers.map((t, i) => (
@@ -255,21 +257,23 @@ const Home = () => (
         </div>
       </div>
     </section>
+      <PopularCourses />
 
-    <PopularCourses />
+      <section className="py-44 text-center bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-5xl md:text-8xl font-serif font-bold mb-12 tracking-tighter">Pronto para <br />o <span className="text-[#00471b] italic">Sucesso?</span></h2>
+          <a href="#contact">
+            <button className="px-16 py-8 bg-[#00471b] text-[#ffdf00] rounded-[32px] font-black uppercase text-sm tracking-[0.2em] shadow-2xl hover:scale-110 transition-all flex items-center gap-4 mx-auto">
+              Garanta sua vaga <Sparkles />
+            </button>
+          </a>
+        </div>
+      </section>
 
-    <section className="py-44 text-center bg-white">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-5xl md:text-8xl font-serif font-bold mb-12 tracking-tighter">Pronto para <br />o <span className="text-[#00471b] italic">Sucesso?</span></h2>
-        <a href="#contact">
-          <button className="px-16 py-8 bg-[#00471b] text-[#ffdf00] rounded-[32px] font-black uppercase text-sm tracking-[0.2em] shadow-2xl hover:scale-110 transition-all flex items-center gap-4 mx-auto">
-            Garanta sua vaga <Sparkles />
-          </button>
-        </a>
-      </div>
-    </section>
-  </main>
-);
+      {showTraj && <TrajectoriesModal open={showTraj} onClose={() => setShowTraj(false)} teachers={teachers} courses={courses} />}
+    </main>
+  );
+};
 
 const ContactSection = () => {
   const container = {

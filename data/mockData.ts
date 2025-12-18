@@ -4,11 +4,11 @@ import { Course, Teacher, CourseLevel, CourseStatus } from '../types';
 export const teachers: Teacher[] = [
   {
     id: 't1',
-    name: 'Beatriz "Bia" Cavalcanti',
-    role: 'Mestra em Branding & Axé nos Negócios',
-    bio: 'Nascida em Salvador e lapidada no mercado de São Paulo, Bia traz a mistura perfeita entre estratégia rigorosa e a energia vibrante do Brasil. Já posicionou marcas que hoje são ícones da nossa cultura.',
-    specialties: ['Personal Branding', 'Marketing Sensorial', 'Estratégia Tropical'],
-    photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=800',
+    name: 'Gabriela',
+    role: 'Professora de Português Brasileiro',
+    bio: 'Nascida em Buenos Aires e apaixonada pelo Brasil, Gabriela traz uma abordagem única ao ensino do português, combinando técnicas tradicionais com insights culturais profundos.',
+    specialties: ['Português Brasileiro para pessoas que viajam'],
+    photo: new URL('../components/public/images/gabrielaa1.png', import.meta.url).href,
     socials: {
       linkedin: '#',
       instagram: '#',
@@ -18,13 +18,14 @@ export const teachers: Teacher[] = [
   },
   {
     id: 't2',
-    name: 'Tainá Guajajara',
-    role: 'Designer de Experiências & Futuro Ancestral',
-    bio: 'Tainá une tecnologia de ponta com design afetivo. Sua missão é criar produtos digitais que tenham a alma brasileira: acolhedores, coloridos e extremamente eficientes.',
-    specialties: ['UX Design', 'Design Thinking', 'Inovação Social'],
-    photo: 'https://images.unsplash.com/photo-1590649662133-d523a38e878c?auto=format&fit=crop&q=80&w=800',
+    name: 'Mayra',
+    role: 'Professora de Português Brasileiro',
+    bio: 'Nascida em Buenos Aires e apaixonada pelo Brasil, Mayra traz uma abordagem única ao ensino do português, combinando técnicas tradicionais com insights culturais profundos.',
+    specialties: ['Português Brasileiro com foco em sotaque'],
+    photo: new URL('../components/public/images/mayraa1.png', import.meta.url).href,
     socials: {
       linkedin: '#',
+      instagram: '#',
       portfolio: '#'
     },
     featuredCourses: ['c2']
@@ -34,7 +35,7 @@ export const teachers: Teacher[] = [
 export const courses: Course[] = [
   {
     id: 'c1',
-    title: 'Marca com Borogodó',
+    title: 'especialização em sotaques regionais',
     subtitle: 'O segredo da autoridade que encanta e fideliza o público brasileiro.',
     category: 'Marketing',
     level: CourseLevel.INTERMEDIATE,
@@ -80,7 +81,7 @@ export const courses: Course[] = [
   },
   {
     id: 'c3',
-    title: 'Aceleração de Negócios: Sucesso com Axé',
+    title: 'Negócios comunicação formal',
     subtitle: 'Estratégias de Growth para quem quer dominar o mercado nacional.',
     category: 'Marketing',
     level: CourseLevel.ADVANCED,
